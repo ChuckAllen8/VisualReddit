@@ -12,7 +12,7 @@ export class RedditCardComponent implements OnInit {
   flipText: string;
   constructor() {
     this.flipped = false;
-    this.flipText = "See Image";
+    this.flipText = "Flip to Thumbnail";
   }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class RedditCardComponent implements OnInit {
 
   flip() {
     this.flipped = !this.flipped;
-    this.flipText = `See ${(this.flipped ? "Title" : "Image")}`
+    this.flipText = `Flip to ${(this.flipped ? "Post Title" : "Thumbnail")}`
   }
 
 }

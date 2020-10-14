@@ -2,7 +2,7 @@
   display: inline-block;
   border-style: solid;
   border-radius: 5px;
-  border-width: thin;
+  border-width: medium;
   margin: 5px;
   width: 200px;
   height: 220px;
@@ -54,6 +54,9 @@
   cursor: default;
   justify-content: center;
   vertical-align: middle;
+  border: black;
+  border-style: solid;
+  border-radius: 10px;
 }
 
 .reddit-card-bottom a:link {
@@ -79,4 +82,24 @@
 
 .reddit-card-bottom-left {
   float: left;
+}
+
+.reddit-card-bottom-left:hover {
+  color: white;
+  background-color: black;
+}
+
+.reddit-card-bottom-right:hover {
+  color: white;
+  background-color: black;
+}
+
+.reddit-card-bottom a:link:hover {
+  color: white;
+  background-color: black;
+}
+
+.reddit-card-bottom a:visited:hover {
+  color: white;
+  background-color: black;
 }

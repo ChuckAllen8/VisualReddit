@@ -4,7 +4,7 @@
         <div class="reddit-card_face reddit-card_face--back">{{card.title}}</div>
     </div>
     <div class="reddit-card-bottom">
-        <span class="reddit-card-bottom-left reddit-card-bottom-button" (click)="flip()">{{flipText}}</span>
+        <a class="reddit-card-bottom-left reddit-card-bottom-button" (click)="flip()">{{flipText}}</a>
         <a class="reddit-card-bottom-right reddit-card-bottom-button" target="_blank" [href]='"https://www.reddit.com" + card.permalink'>View on Reddit</a>
     </div>
 </div>

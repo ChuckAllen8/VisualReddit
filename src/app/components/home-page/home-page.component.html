@@ -1,0 +1,6 @@
+<div>
+    <div style="width: 100%;">r/ <input [(ngModel)]="subreddit" (input)="subredditChange()" /></div>
+    <ng-container *ngIf="currentListing">
+        <app-reddit-card *ngFor="let card of currentListing.data.children" [card]="card.data"></app-reddit-card>
+    </ng-container>
+</div>

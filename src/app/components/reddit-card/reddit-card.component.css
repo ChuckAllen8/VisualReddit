@@ -1,0 +1,82 @@
+.scene {
+  display: inline-block;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: thin;
+  margin: 5px;
+  width: 200px;
+  height: 220px;
+  perspective: 600px;
+  padding: 2px 2px 2px 2px;
+}
+
+.reddit-card {
+  height: 75%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+}
+
+.reddit-card_face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reddit-card_face--front {
+  transform: rotateY( 180deg );
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.reddit-card_face--back {
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.reddit-card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.reddit-card-bottom {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: default;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.reddit-card-bottom a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.reddit-card-bottom a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.reddit-card-bottom-button {
+  text-decoration: none;
+  cursor: pointer;
+  height: 100%;
+  width: 50%;
+}
+
+.reddit-card-bottom-right {
+  float: right;
+}
+
+.reddit-card-bottom-left {
+  float: left;
+}

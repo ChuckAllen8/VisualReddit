@@ -1,0 +1,10 @@
+<div *ngIf="!card.over_18" class="scene">
+    <div class="reddit-card" [ngClass]="{'is-flipped': flipped}">
+        <div class="reddit-card_face reddit-card_face--front" [ngStyle]="{'background-image': 'url('+card.thumbnail+')'}"></div>
+        <div class="reddit-card_face reddit-card_face--back">{{card.title}}</div>
+    </div>
+    <div class="reddit-card-bottom">
+        <span class="reddit-card-bottom-left reddit-card-bottom-button" (click)="flip()">{{flipText}}</span>
+        <a class="reddit-card-bottom-right reddit-card-bottom-button" target="_blank" [href]='"https://www.reddit.com" + card.permalink'>View on Reddit</a>
+    </div>
+</div>

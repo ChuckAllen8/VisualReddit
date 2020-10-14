@@ -10,7 +10,6 @@ import { PostData } from '../../interfaces/post-data';
 })
 export class HomePageComponent implements OnInit {
   currentListing: Listing;
-  allPosts: PostData[];
   subreddit: string;
 
   constructor(private data: RedditDataService) {
@@ -19,6 +18,12 @@ export class HomePageComponent implements OnInit {
 
   subredditChange() {
     this.data.getPosts(this.subreddit).subscribe(
+      x => this.currentListing = x
+    );
+  }
+
+  nextPage() {
+    this.data.getNextPosts(this.subreddit, this.currentListing.data.after).subscribe(
       x => this.currentListing = x
     );
   }

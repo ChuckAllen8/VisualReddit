@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RedditDataService } from '../../services/reddit-data.service';
-import { Listing } from '../../interfaces/listing';
 import { PostData } from '../../interfaces/post-data';
 
 @Component({
@@ -9,29 +8,53 @@ import { PostData } from '../../interfaces/post-data';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  currentListing: Listing;
+  allPosts: PostData[];
   subreddit: string;
 
+  // All commented out code is for the intersection observer.
+  // That method requires a full scroll to the bottom to make
+  // the call to get more data. The ngx-infinite-scroll way does
+  // currently in use does not.
+  // npm install ngx-infinite-scroll
+
+  // observer: IntersectionObserver;
+  // target: Element;
+
+  // options = {
+  //   rootMargin: '0px',
+  //   threshold: 0
+  // }
+
+  // callback = (entries, observer) => {
+  //   this.nextPage();
+  // };
+
   constructor(private data: RedditDataService) {
-    this.subreddit = 'aww';
+    this.subreddit = this.data.subreddit;
   }
 
   subredditChange() {
-    this.data.getPosts(this.subreddit).subscribe(
-      x => this.currentListing = x
-    );
+    this.data.changeReddit(this.subreddit);
   }
 
   nextPage() {
-    this.data.getNextPosts(this.subreddit, this.currentListing.data.after).subscribe(
-      x => this.currentListing = x
-    );
+    this.data.getNextPosts();
   }
 
+  // createObserver() {
+  //   this.observer = new IntersectionObserver(this.callback, this.options);
+  //   this.observer.observe(this.target);
+  // }
+
   ngOnInit(): void {
-    this.data.getPosts(this.subreddit).subscribe(
-      x => this.currentListing = x
+    this.data.getPosts().subscribe(
+      x => this.allPosts = x
     );
+    this.data.getFirstPosts();
+    // window.addEventListener("load", (event) => {
+    //  this.target = document.getElementById('ScrollComponent');
+    //  this.createObserver();
+    // }, false);
   }
 
 }

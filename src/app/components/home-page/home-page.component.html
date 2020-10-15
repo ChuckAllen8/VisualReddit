@@ -1,8 +1,11 @@
-<div>
-    <div style="width: 100%;">r/ <input [(ngModel)]="subreddit" (input)="subredditChange()" />
-        <button (click)="nextPage()">Next</button>
+<div class="nav-bar">
+    <div class="nav-bar-item">
+        r/<input class="nav-bar-item" [(ngModel)]="subreddit" (change)="subredditChange()" />
     </div>
-    <ng-container *ngIf="currentListing">
-        <app-reddit-card *ngFor="let card of currentListing.data.children" [card]="card.data"></app-reddit-card>
-    </ng-container>
+</div>
+<div class="page-content">
+    <div *ngIf="allPosts" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="nextPage()">
+        <app-reddit-card *ngFor="let card of allPosts" [card]="card.data"></app-reddit-card>
+    </div>
+    <!--<div #ScrollComponent id="ScrollComponent"></div>-->
 </div>

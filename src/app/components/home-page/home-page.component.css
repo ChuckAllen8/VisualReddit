@@ -1,0 +1,24 @@
+.nav-bar {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10%;
+    overflow: hidden;
+    border-style: outset;
+    border-width: thin;
+    border-color: black;
+}
+
+.nav-bar-item {
+    max-width: 85%;
+}
+
+.page-content {
+    display: flex;
+    position: absolute;
+    scroll-behavior: unset;
+    left: 10%;
+    border-style: inset;
+    top: 0;
+}

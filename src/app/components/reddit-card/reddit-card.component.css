@@ -1,13 +1,13 @@
 .scene {
   display: inline-block;
-  border-style: solid;
+  border-style: inset;
   border-radius: 5px;
+  border-color: rgb(100, 100, 100);
   border-width: medium;
   margin: 5px;
   width: 200px;
   height: 220px;
   perspective: 600px;
-  padding: 2px 2px 2px 2px;
 }
 
 .reddit-card {
@@ -48,15 +48,15 @@
 }
 
 .reddit-card-bottom {
+  height: 25%;
   display: flex;
   align-items: center;
   text-align: center;
   cursor: default;
   justify-content: center;
   vertical-align: middle;
-  border: black;
-  border-style: solid;
-  border-radius: 10px;
+  border-top: 2px solid black;
+  border-radius: 5px;
 }
 
 .reddit-card-bottom a:link {

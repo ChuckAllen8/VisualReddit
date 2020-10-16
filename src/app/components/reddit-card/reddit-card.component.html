@@ -1,6 +1,12 @@
-<div *ngIf="!card.over_18" class="scene">
+<div *ngIf="card && !card.over_18" class="scene">
     <div class="reddit-card" [ngClass]="{'is-flipped': flipped}">
-        <div class="reddit-card_face reddit-card_face--front" [ngStyle]="{'background-image': 'url('+card.thumbnail+')'}"></div>
+        <ng-container *ngIf="image">
+            <div *ngIf="!card.is_video" class="reddit-card_face reddit-card_face--front"><img height="100px" width="100px" [src]="image" /></div>
+            <div *ngIf="card.is_video" class="reddit-card_face reddit-card_face--front"><video width="100px" height="100px" autoplay loop muted><source [src]="card.media.reddit_video.scrubber_media_url" type="video/mp4"></video></div>
+        </ng-container>
+        <ng-container *ngIf="!image">
+            <div class="reddit-card_face reddit-card_face--front">Nothing to see here</div>
+        </ng-container>
         <div class="reddit-card_face reddit-card_face--back">{{card.title}}</div>
     </div>
     <div class="reddit-card-bottom">
